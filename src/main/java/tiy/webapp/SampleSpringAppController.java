@@ -27,7 +27,8 @@ public class SampleSpringAppController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(HttpSession session, String userName) {
         session.setAttribute("userName", userName);
-        return "redirect:/";
+//        return "redirect:/";
+        return "redirect:/chat";
     }
 
     @RequestMapping(path = "/logout", method = RequestMethod.GET)
