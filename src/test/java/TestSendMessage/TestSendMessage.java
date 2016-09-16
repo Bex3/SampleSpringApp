@@ -43,7 +43,7 @@ public class TestSendMessage {
 
         String serverResponse = myWebChatClient.SendMessage(testClientMessage);
 
-        assertEquals("what I expect back from the server", serverResponse);
+        assertEquals("Message received: " + testClientMessage, serverResponse);
 
 //
 //        assertTrue(testClientMessage.equals(testServerMessage));

@@ -8,30 +8,29 @@ import java.net.Socket;
  */
 public class Server {
 
-    public class SampleServer {
-/*Socket theSocket = null;
 
-    public SampleServer(){}
-    public SampleServer(Socket inBriceWeTrust){
-        this.theSocket = inBriceWeTrust;
-    }*/
+    public static void main(String[] args) {
+        System.out.println("Booting server");
+        Server myServer = new Server();
+        myServer.StartServer();
+    }
 
 
-        public void StartServer() {
-            System.out.println("Booting server");
-            try {
-                ServerSocket serverListener = new ServerSocket(8024); //8005?
-                System.out.println("Ready to listen");
+    public void StartServer() {
+        System.out.println("Booting server");
+        try {
+            ServerSocket serverListener = new ServerSocket(8005); //8005?
+            System.out.println("Ready to listen");
 
-                while (true) {
-                    Socket incomingConnection = serverListener.accept();
-                    ConnectionHandler handler = new ConnectionHandler(incomingConnection);
-                    Thread runningThreadServer = new Thread(handler);
-                    runningThreadServer.start();
-                }
-            } catch (Exception ex){
-                ex.printStackTrace();
+            while (true) {
+                Socket incomingConnection = serverListener.accept();
+                ConnectionHandler handler = new ConnectionHandler(incomingConnection);
+                Thread runningThreadServer = new Thread(handler);
+                runningThreadServer.start();
             }
-        }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
+}
+

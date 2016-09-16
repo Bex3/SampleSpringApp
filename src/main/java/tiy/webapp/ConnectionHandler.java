@@ -25,8 +25,6 @@ public class ConnectionHandler implements Runnable {
 
     public void run() {
         try {
-//            PrintWriter outputToClient;
-//            BufferedReader inputFromClient;
             handleIncomingConnections(clientSocket);
         } catch (IOException ioEx) {
             ioEx.printStackTrace();
@@ -51,21 +49,19 @@ public class ConnectionHandler implements Runnable {
 
         BufferedReader in = new BufferedReader(new InputStreamReader(incomingConnection.getInputStream()));
 
-
-        //out.println("Hello, please enter your name in the following format name=WhateverYourNameIs.");
-
-        String clientInput= in.readLine();
+        //String clientInput= in.readLine();
 
 
         String clientInput;
-        while (true) {
-            if ((clientInput= in.readLine()) != null))
-                System.out.println(clientUserName + " said " + clientInput); //in.toString())
+//        while (true) {
+            if ((clientInput = in.readLine()) != null){
+                System.out.println("Client said " + clientInput); //in.toString())
                 out.println("Message received: " + clientInput);
-        }else {
-            System.out.println();
+//            } else {
+            System.out.println("Transmission error");
+//            }
+            clientSocket.close();
         }
-        }
-        clientSocket.close();
+
     }
 }

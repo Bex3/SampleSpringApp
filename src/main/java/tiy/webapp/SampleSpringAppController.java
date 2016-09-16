@@ -39,7 +39,7 @@ public class SampleSpringAppController {
 
     @RequestMapping(path = "/entermessage", method = RequestMethod.POST)
     public String entermessage (HttpSession session, String message) {
-        session.removeAttribute("message");
+//        session.removeAttribute("message");
         myWebChatClient = new WebChatClient();
         myWebChatClient.SendMessage(message);
 

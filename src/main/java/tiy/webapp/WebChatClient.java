@@ -16,20 +16,21 @@ public class WebChatClient {
 
     public String SendMessage(String message) {
         try {
-            Socket clientSocket = new java.net.Socket("localhost", 8080);
+            Socket clientSocket = new java.net.Socket("localhost", 8005);
 
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             System.out.println("output stream initialized");
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             System.out.println("input stream initialized");
 
-            System.out.println(message);
+//            System.out.println(message);
 
             out.println(message);
 
 //            System.out.println("Can we make it here?");
 
             serverResponse = in.readLine();
+            System.out.println(serverResponse);
 
 
         } catch (Exception exception){
